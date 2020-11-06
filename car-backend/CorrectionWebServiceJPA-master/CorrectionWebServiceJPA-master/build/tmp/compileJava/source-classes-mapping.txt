@@ -1,0 +1,10 @@
+com/univ/repository/CarRepository.java
+ com.univ.repository.CarRepository
+com/univ/CorrectionWebServiceJpaApplication.java
+ com.univ.CorrectionWebServiceJpaApplication
+com/univ/model/Car.java
+ com.univ.model.Car
+com/univ/service/CarRentalService.java
+ com.univ.service.CarRentalService
+com/univ/web/CarRentalController.java
+ com.univ.web.CarRentalController

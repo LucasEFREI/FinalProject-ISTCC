@@ -1,0 +1,21 @@
+div#TBR
+{
+    color:green;
+}
+
+div#R
+{
+    color:red;
+}
+
+#RIN
+{
+    background-color: darkgreen;
+    color:white;
+}
+
+#GIBN
+{
+    background-color: darkred;
+    color:white;
+}
