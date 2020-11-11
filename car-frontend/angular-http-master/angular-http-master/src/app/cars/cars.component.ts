@@ -37,8 +37,8 @@ export class CarsComponent implements OnInit {
     this.carService.getBack(car).subscribe(c => this.rentedCar = c);
   }
 
-  delete(car: Car): void {
-    this.carService.deleteCar(car).subscribe(c => this.selectedCar = c);
+  deleteCar(car: Car): void {
+    this.carService.deleteCar(car).subscribe(data => console.log(data));
   }
 
   add(): void{

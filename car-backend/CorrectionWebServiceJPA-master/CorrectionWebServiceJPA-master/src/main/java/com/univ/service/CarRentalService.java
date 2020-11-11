@@ -30,28 +30,7 @@ public class CarRentalService {
             connection.start();
             QueueSender sender = session.createSender(queue);
 
-            TextMessage msg;
-
-            if (request.equals("GET"))
-            {
-                msg = session.createTextMessage("GET");
-            }
-            else if (request.equals("PUT"))
-            {
-                msg = session.createTextMessage("PUT");
-            }
-            else if (request.equals("POST"))
-            {
-                msg = session.createTextMessage("POST");
-            }
-            else if (request.equals("DELETE"))
-            {
-                msg = session.createTextMessage("DELETE");
-            }
-            else
-            {
-                msg = session.createTextMessage("UNIDENTIFIED REQUEST");
-            }
+            TextMessage msg = session.createTextMessage(request);
 
             sender.send(msg, DeliveryMode.PERSISTENT, 4, 10000);
 
@@ -92,7 +71,9 @@ public class CarRentalService {
 
     public Car save(Car car){return carRepository.save(car);}
 
-    public void remove(Car car){carRepository.delete(car);}
+    public void remove(Car car){
+        carRepository.delete(car);
+    }
 
     public Iterable<Car> findAll() {
         return null;

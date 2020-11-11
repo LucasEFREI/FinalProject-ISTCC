@@ -39,8 +39,8 @@ export class CarService {
   }
 
   public deleteCar(car): Observable<any> {
-    console.warn('Request to: ' + 'http://localhost:8080/cars/' + car.plateNumber );
-    return this.http.delete('Request to: ' + 'http://localhost:8080/cars/' + car.plateNumber , null);
+    console.warn('Request to: ' + 'http://localhost:8080/cars/' + car.plateNumber);
+    return this.http.delete('http://localhost:8080/cars/' + car.plateNumber);
   }
 
 

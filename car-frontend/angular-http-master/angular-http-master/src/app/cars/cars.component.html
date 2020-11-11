@@ -28,7 +28,7 @@
     <button *ngIf="selectedCar.rented==false" (click)="rent(selectedCar)" id="RIN">Rent it now !</button>
     <button *ngIf="selectedCar.rented==true" (click)="getBack(selectedCar)" id="GIBN">Get it back now !</button>
     <p></p>
-    <button  (click)="delete(selectedCar)" id="DIN">Delete it now!</button>
+    <button  (click)="deleteCar(selectedCar)" id="DIN">Delete it now!</button>
 </div>
 
   <p></p>

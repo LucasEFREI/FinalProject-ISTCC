@@ -68,6 +68,7 @@ public class CarRentalController {
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public void addCar(){
+		System.out.println("test2");
 		Car car = new Car(carRentalService.generatePlateNumber(), "Unknown", 100);
 		carRentalService.save(car);
 		carRentalService.sendMsg("POST");
@@ -78,6 +79,7 @@ public class CarRentalController {
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public void deleteCar(@PathVariable(name="plateNumber") String plateNumber){
+		System.out.println("test");
 		for (Car car: listOfCars()) {
 			if (car.getPlateNumber().equals(plateNumber)) {
 				carRentalService.remove(car);
