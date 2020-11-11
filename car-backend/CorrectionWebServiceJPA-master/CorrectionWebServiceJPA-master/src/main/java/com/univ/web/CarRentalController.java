@@ -27,6 +27,7 @@ public class CarRentalController {
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public Iterable<Car> listOfCars(){
+		carRentalService.sendMsg("GET");
 		return carRentalService.carRepository.findAll();
 	}
 
@@ -43,7 +44,7 @@ public class CarRentalController {
 				carRentalService.save(car);
 			}
 		}
-		carRentalService.sendMsg();
+		carRentalService.sendMsg("PUT");
 	}
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -59,9 +60,31 @@ public class CarRentalController {
 				carRentalService.save(car);
 			}
 		}
-		carRentalService.sendMsg();
+		carRentalService.sendMsg("PUT");
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping("cars")
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public void addCar(){
+		Car car = new Car(carRentalService.generatePlateNumber(), "Unknown", 100);
+		carRentalService.save(car);
+		carRentalService.sendMsg("POST");
+	}
+
+	@CrossOrigin(origins = "http://localhost:4200")
+	@DeleteMapping("cars/{plateNumber}")
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public void deleteCar(@PathVariable(name="plateNumber") String plateNumber){
+		for (Car car: listOfCars()) {
+			if (car.getPlateNumber().equals(plateNumber)) {
+				carRentalService.remove(car);
+			}
+		}
+		carRentalService.sendMsg("DELETE");
+	}
 
 
 }

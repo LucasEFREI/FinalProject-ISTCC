@@ -33,5 +33,15 @@ export class CarService {
     return this.http.put('http://localhost:8080/cars/' + car.plateNumber + '/getback?louer=false', null);
   }
 
+  public addCar(): Observable<any> {
+    console.warn('Request to: ' + 'http://localhost:8080/cars');
+    return this.http.post('http://localhost:8080/cars', null);
+  }
+
+  public deleteCar(car): Observable<any> {
+    console.warn('Request to: ' + 'http://localhost:8080/cars/' + car.plateNumber );
+    return this.http.delete('Request to: ' + 'http://localhost:8080/cars/' + car.plateNumber , null);
+  }
+
 
 }
